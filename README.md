@@ -11,6 +11,7 @@
 | `main.tex` | Full CV (root document; the one Overleaf compiles) |
 | `preamble.tex` | Shared packages and page geometry |
 | `sections/*.tex` | One file per section, shared by every version |
+| `CREDITS.md` | Where the LaTeX template came from, and its license |
 
 To add another version (e.g. a one-page resume), copy `main.tex` to a new
 file, keep or drop `\input{sections/...}` lines as needed, and add the new
