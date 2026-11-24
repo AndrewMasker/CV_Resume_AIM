@@ -1,6 +1,8 @@
 # Andrew Masker — CV / Resume
 
-**[Download PDF](https://raw.githubusercontent.com/AndrewMasker/CV_Resume_AIM/build/main.pdf)** · [View on GitHub](https://github.com/AndrewMasker/CV_Resume_AIM/blob/build/main.pdf)
+**Robotics resume:** [Download PDF](https://raw.githubusercontent.com/AndrewMasker/CV_Resume_AIM/build/main.pdf) · [View on GitHub](https://github.com/AndrewMasker/CV_Resume_AIM/blob/build/main.pdf)
+
+**Academic CV:** [Download PDF](https://raw.githubusercontent.com/AndrewMasker/CV_Resume_AIM/build/academic.pdf) · [View on GitHub](https://github.com/AndrewMasker/CV_Resume_AIM/blob/build/academic.pdf)
 
 [![CV preview](https://raw.githubusercontent.com/AndrewMasker/CV_Resume_AIM/build/preview.png)](https://github.com/AndrewMasker/CV_Resume_AIM/blob/build/main.pdf)
 
@@ -8,14 +10,20 @@
 
 | File | Purpose |
 | --- | --- |
-| `main.tex` | Full CV (root document; the one Overleaf compiles) |
+| `main.tex` | Robotics / robot learning resume (the one Overleaf compiles) |
+| `academic.tex` | Academic CV, oriented toward robot learning |
+| `old_stuff.tex` | Previous full CV, kept for reference (not built by CI) |
 | `preamble.tex` | Shared packages and page geometry |
-| `sections/*.tex` | One file per section, shared by every version |
+| `sections/education.tex`, `sections/publications.tex` | Shared by every version |
+| `sections/robotics/*.tex` | Robotics resume sections (`skills` is also used by the academic CV) |
+| `sections/academic/*.tex` | Academic CV sections |
+| `sections/old/*.tex` | Sections used only by `old_stuff.tex` |
 | `CREDITS.md` | Where the LaTeX template came from, and its license |
 
-To add another version (e.g. a one-page resume), copy `main.tex` to a new
-file, keep or drop `\input{sections/...}` lines as needed, and add the new
-file to `root_file` and the publish step in `.github/workflows/build.yml`.
+To add another version, copy `main.tex` or `academic.tex` to a new file,
+keep, drop or swap `\input{sections/...}` lines as needed, and add the new
+file to `root_file`, the artifact paths, and the publish step in
+`.github/workflows/build.yml`. The preview image above shows `main.tex`.
 
 ## Builds
 
