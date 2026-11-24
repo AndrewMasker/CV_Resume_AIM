@@ -11,6 +11,6 @@
 *.blg
 
 # Compiled output is published to the `build` branch by CI
-/main.pdf
+/*.pdf
 /page-*.png
 /preview.png
