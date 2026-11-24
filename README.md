@@ -27,7 +27,7 @@ file to `root_file`, the artifact paths, and the publish step in
 
 ## Builds
 
-Every push to `main` compiles the PDF and force-pushes it, with a preview
+Every push to `main` compiles the PDFs and force-pushes them, with a preview
 image, to the `build` branch, which the links above point to. Pull requests
 are compiled too; their PDF can be downloaded from the run's Artifacts.
 Build output is kept off `main` so Overleaf's GitHub sync never pulls it in.
