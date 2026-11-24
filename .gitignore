@@ -1,0 +1,16 @@
+# LaTeX build output
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+*.toc
+*.bbl
+*.blg
+
+# Compiled output is published to the `build` branch by CI
+/main.pdf
+/page-*.png
+/preview.png

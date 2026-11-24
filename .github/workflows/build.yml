@@ -1,0 +1,59 @@
+name: Build CV
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-cv-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      # Add more root files here as you create other versions
+      # (e.g. resume-industry.tex), and copy their PDFs in the publish step.
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: |
+            main.tex
+
+      - name: Render preview image
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q poppler-utils imagemagick
+          pdftoppm -png -r 110 main.pdf page
+          convert page-*.png -bordercolor '#d0d7de' -border 1 -append +repage preview.png
+
+      # On PRs: download the PDF from the run's Artifacts to review changes before merging
+      - name: Upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: cv
+          path: |
+            main.pdf
+            preview.png
+
+      # On merges to main: publish to the `build` branch, which the README links to.
+      # Kept off main so Overleaf's GitHub sync never pulls build output.
+      - name: Publish to build branch
+        if: github.event_name == 'push'
+        run: |
+          mkdir out
+          cp main.pdf preview.png out/
+          cd out
+          git init -q -b build
+          git add .
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898283+github-actions[bot]@users.noreply.github.com" \
+              commit -q -m "Build ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" build
