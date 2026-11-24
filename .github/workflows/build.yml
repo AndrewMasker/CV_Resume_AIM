@@ -19,21 +19,21 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      # main.tex is the robotics resume, academic.tex the academic CV.
+      # resume.tex is the robotics resume, cv.tex the academic CV.
       # old_stuff.tex is kept for reference only and isn't built here.
       # Add new versions here, to the artifact paths, and to the publish step.
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v4
         with:
           root_file: |
-            main.tex
-            academic.tex
+            resume.tex
+            cv.tex
 
       - name: Render preview image
         run: |
           sudo apt-get update -q
           sudo apt-get install -y -q poppler-utils imagemagick
-          pdftoppm -png -r 110 main.pdf page
+          pdftoppm -png -r 110 resume.pdf page
           convert page-*.png -bordercolor '#d0d7de' -border 1 -append +repage preview.png
 
       # On PRs: download the PDF from the run's Artifacts to review changes before merging
@@ -42,8 +42,8 @@ jobs:
         with:
           name: cv
           path: |
-            main.pdf
-            academic.pdf
+            resume.pdf
+            cv.pdf
             preview.png
 
       # On merges to main: publish to the `build` branch, which the README links to.
@@ -52,7 +52,7 @@ jobs:
         if: github.event_name == 'push'
         run: |
           mkdir out
-          cp main.pdf academic.pdf preview.png out/
+          cp resume.pdf cv.pdf preview.png out/
           cd out
           git init -q -b build
           git add .

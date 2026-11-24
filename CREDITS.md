@@ -25,7 +25,7 @@ The template describes itself as "CV template similar to harvad CV".
 - Added `etaremune` for the reverse-numbered publication lists.
 
 LPPL 1.3c asks that modified versions say they've been changed and where
-the original came from; this file and the comment at the top of `main.tex`
+the original came from; this file and the comment at the top of each root `.tex` file
 cover that.
 
 ## Removed reference material
