@@ -19,13 +19,14 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      # Add more root files here as you create other versions
-      # (e.g. resume-industry.tex), and copy their PDFs in the publish step.
+      # main.tex is the robotics resume, academic.tex the full academic CV.
+      # Add new versions here, to the artifact paths, and to the publish step.
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v4
         with:
           root_file: |
             main.tex
+            academic.tex
 
       - name: Render preview image
         run: |
@@ -41,6 +42,7 @@ jobs:
           name: cv
           path: |
             main.pdf
+            academic.pdf
             preview.png
 
       # On merges to main: publish to the `build` branch, which the README links to.
@@ -49,7 +51,7 @@ jobs:
         if: github.event_name == 'push'
         run: |
           mkdir out
-          cp main.pdf preview.png out/
+          cp main.pdf academic.pdf preview.png out/
           cd out
           git init -q -b build
           git add .
