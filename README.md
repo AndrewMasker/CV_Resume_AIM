@@ -11,10 +11,13 @@
 | File | Purpose |
 | --- | --- |
 | `main.tex` | Robotics / robot learning resume (the one Overleaf compiles) |
-| `academic.tex` | Full academic CV |
+| `academic.tex` | Academic CV, oriented toward robot learning |
+| `old_stuff.tex` | Previous full CV, kept for reference (not built by CI) |
 | `preamble.tex` | Shared packages and page geometry |
-| `sections/*.tex` | Sections for the academic CV; `education` and `publications` are shared with the resume |
-| `sections/robotics/*.tex` | Sections specific to the robotics resume |
+| `sections/education.tex`, `sections/publications.tex` | Shared by every version |
+| `sections/robotics/*.tex` | Robotics resume sections (`skills` is also used by the academic CV) |
+| `sections/academic/*.tex` | Academic CV sections |
+| `sections/old/*.tex` | Sections used only by `old_stuff.tex` |
 | `CREDITS.md` | Where the LaTeX template came from, and its license |
 
 To add another version, copy `main.tex` or `academic.tex` to a new file,

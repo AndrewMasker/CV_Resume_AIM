@@ -4,11 +4,12 @@
 % Layout adapted from "CV - Harvard-like" by Aline R. Antunes (Overleaf,
 % LPPL 1.3c). See CREDITS.md.
 
-% Full academic CV. The robotics resume is main.tex; both share
-% sections/education.tex and sections/publications.tex.
+% Academic CV, oriented toward robot learning. Its own sections are in
+% sections/academic/; education and publications are shared with every
+% version, and skills with the robotics resume (main.tex).
 
 \begin{document}
-\input{sections/header}
+\input{sections/academic/header}
 
 \vspace{0.5pt}
 
@@ -16,35 +17,34 @@
 
 \vspace{12pt}
 
-\input{sections/research-interests}
+\input{sections/academic/research-interests}
 
 \vspace{12pt}
 
-\input{sections/experience}
+\input{sections/academic/research-experience}
 
-\vspace{12pt}
-
-%\newpage
-
-\input{sections/awards}
-
-\vspace{12pt}
+\newpage
 
 \input{sections/publications}
 
 \vspace{12pt}
 
-\input{sections/projects}
-
-\vspace{12pt}
-%\newpage
-
-\input{sections/skills}
-
-%\newpage
+\input{sections/academic/awards}
 
 \vspace{12pt}
 
-\input{sections/coursework}
+\input{sections/academic/projects}
+
+\vspace{12pt}
+
+\input{sections/academic/teaching}
+
+\vspace{12pt}
+
+\input{sections/robotics/skills}
+
+\vspace{12pt}
+
+\input{sections/academic/coursework}
 
 \end{document}

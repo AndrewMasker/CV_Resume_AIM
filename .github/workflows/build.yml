@@ -19,7 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      # main.tex is the robotics resume, academic.tex the full academic CV.
+      # main.tex is the robotics resume, academic.tex the academic CV.
+      # old_stuff.tex is kept for reference only and isn't built here.
       # Add new versions here, to the artifact paths, and to the publish step.
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v4
