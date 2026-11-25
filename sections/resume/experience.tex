@@ -22,7 +22,7 @@ PI: Samuel Grauer
 \begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt]
     \item Developed neural optical flow, which estimates dense velocity fields from images of particle-laden flows for planar and stereo PIV and handles particle displacements of 15+ pixels; published in \textit{Experiments in Fluids} (J1).
 
-    \item On synthetic turbulence, cut velocity error to 0.07 NRMSE, versus 0.23 for cross-correlation and 0.09--0.10 for leading optical flow methods; in stereo, cut out-of-plane velocity error to 0.28, versus 0.36--0.38.
+    \item On synthetic turbulence, cut velocity error to 0.07 NRMSE, versus 0.23 for cross-correlation and 0.09--0.10 for leading optical flow methods; in stereo, cut velocity error to 0.28, versus 0.36--0.38.
 
     \item Built physics into the learned model: a divergence-free condition as a hard constraint and Navier--Stokes residuals as a soft constraint, which let it recover pressure directly from images (0.08 NRMSE); implemented with automatic differentiation in PyTorch.
 \end{itemize}
