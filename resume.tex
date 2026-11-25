@@ -4,36 +4,41 @@
 % Layout adapted from "CV - Harvard-like" by Aline R. Antunes (Overleaf,
 % LPPL 1.3c). See CREDITS.md.
 
-% Robotics / robot learning resume. Education and Publications are shared
-% with the CV (cv.tex); everything else comes from sections/resume/.
+% One-page robotics / robot learning resume, the main version. Its sections
+% are condensed copies of the two-page resume's (resume_two_page.tex), in
+% sections/resume/one-page/; edit both when the content changes.
+
+% Centered bold section title with less space around it than the center
+% environment the other versions use.
+\newcommand{\resheading}[1]{\par\vspace{2pt}{\centering\textbf{#1}\par}\vspace{3pt}}
 
 \begin{document}
 \input{sections/resume/header}
 
-\input{sections/resume/summary}
+\input{sections/resume/one-page/summary}
 
 \vspace{4pt}
 
-\input{sections/education}
+\input{sections/resume/one-page/education}
 
 \vspace{4pt}
 
-\input{sections/resume/experience}
-
-\newpage
-
-\input{sections/resume/projects}
+\input{sections/resume/one-page/experience}
 
 \vspace{4pt}
 
-\input{sections/publications}
+\input{sections/resume/one-page/projects}
 
 \vspace{4pt}
 
-\input{sections/resume/skills}
+\input{sections/resume/one-page/publications}
 
 \vspace{4pt}
 
-\input{sections/resume/awards}
+\input{sections/resume/one-page/skills}
+
+\vspace{4pt}
+
+\input{sections/resume/one-page/awards}
 
 \end{document}

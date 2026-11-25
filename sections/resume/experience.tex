@@ -8,9 +8,9 @@ PI: Ani Hsieh
 \begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt]
     \item Built a learned dynamics model of a Franka Emika Panda manipulator operating underwater: a knowledge-based neural ODE (KNODE) that combines rigid-body dynamics from MuJoCo with a neural network that learns the residual fluid torques.
 
-    \item Trained the hybrid model end to end through a differentiable simulator on GPU in JAX, MJX, Equinox, and Diffrax, and compared it with Fourier-basis SINDy, Gaussian process, and nominal physics models on simulated trajectories.
+    \item Trained the hybrid model end to end through a differentiable simulator on GPU in JAX, MJX, Equinox, and Diffrax.
 
-    \item Laid the groundwork for model-based controllers that anticipate environment forces rather than relying on stiff, power-hungry high-gain control.
+    \item On simulated underwater trajectories, the KNODE's predictions nearly overlapped the ground truth, while Fourier-basis SINDy, Gaussian process, and fluid-free nominal models drifted away from it.
 \end{itemize}
 
 \vspace{12pt}
@@ -20,9 +20,11 @@ PI: Ani Hsieh
 \textbf{Undergraduate Research Assistant} \hfill January 2024 -- May 2025\\
 PI: Samuel Grauer
 \begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt]
-    \item Developed neural optical flow, which estimates dense motion fields from image sequences of particle-laden flows for planar and stereo PIV; published in \textit{Experiments in Fluids} (J1).
+    \item Developed neural optical flow, which estimates dense velocity fields from images of particle-laden flows for planar and stereo PIV and handles particle displacements of 15+ pixels; published in \textit{Experiments in Fluids} (J1).
 
-    \item Built physics into the learned model: a divergence-free condition as a hard constraint and Navier--Stokes residuals as a soft constraint, which let it infer unobserved fields such as pressure; implemented with automatic differentiation in PyTorch.
+    \item On synthetic turbulence, cut velocity error to 0.07 NRMSE, versus 0.23 for cross-correlation and 0.09--0.10 for leading optical flow methods; in stereo, cut out-of-plane velocity error to 0.28, versus 0.36--0.38.
+
+    \item Built physics into the learned model: a divergence-free condition as a hard constraint and Navier--Stokes residuals as a soft constraint, which let it recover pressure directly from images (0.08 NRMSE); implemented with automatic differentiation in PyTorch.
 \end{itemize}
 
 \vspace{12pt}
