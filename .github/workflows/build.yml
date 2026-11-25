@@ -19,7 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      # resume.tex is the robotics resume, cv.tex the academic CV.
+      # resume.tex is the one-page robotics resume (the main one),
+      # resume_two_page.tex its longer version, and cv.tex the academic CV.
       # old_stuff.tex is kept for reference only and isn't built here.
       # Add new versions here, to the artifact paths, and to the publish step.
       - name: Compile LaTeX
@@ -27,6 +28,7 @@ jobs:
         with:
           root_file: |
             resume.tex
+            resume_two_page.tex
             cv.tex
 
       - name: Render preview image
@@ -43,6 +45,7 @@ jobs:
           name: cv
           path: |
             resume.pdf
+            resume_two_page.pdf
             cv.pdf
             preview.png
 
@@ -52,7 +55,7 @@ jobs:
         if: github.event_name == 'push'
         run: |
           mkdir out
-          cp resume.pdf cv.pdf preview.png out/
+          cp resume.pdf resume_two_page.pdf cv.pdf preview.png out/
           cd out
           git init -q -b build
           git add .
