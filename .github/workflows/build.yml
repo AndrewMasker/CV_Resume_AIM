@@ -20,7 +20,9 @@ jobs:
       - uses: actions/checkout@v6
 
       # resume.tex is the one-page robotics resume (the main one),
-      # resume_two_page.tex its longer version, and cv.tex the academic CV.
+      # resume_two_page.tex its longer version, resume_formlabs.tex the
+      # one-page version for the Formlabs Hardware R&D Internship, and cv.tex
+      # the academic CV.
       # old_stuff.tex is kept for reference only and isn't built here.
       # Add new versions here, to the artifact paths, and to the publish step.
       - name: Compile LaTeX
@@ -29,6 +31,7 @@ jobs:
           root_file: |
             resume.tex
             resume_two_page.tex
+            resume_formlabs.tex
             cv.tex
 
       - name: Render preview image
@@ -46,6 +49,7 @@ jobs:
           path: |
             resume.pdf
             resume_two_page.pdf
+            resume_formlabs.pdf
             cv.pdf
             preview.png
 
@@ -55,7 +59,7 @@ jobs:
         if: github.event_name == 'push'
         run: |
           mkdir out
-          cp resume.pdf resume_two_page.pdf cv.pdf preview.png out/
+          cp resume.pdf resume_two_page.pdf resume_formlabs.pdf cv.pdf preview.png out/
           cd out
           git init -q -b build
           git add .

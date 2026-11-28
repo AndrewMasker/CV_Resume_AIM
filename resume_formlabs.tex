@@ -1,0 +1,48 @@
+\documentclass[11pt]{article}
+\input{preamble}
+
+% Layout adapted from "CV - Harvard-like" by Aline R. Antunes (Overleaf,
+% LPPL 1.3c). See CREDITS.md.
+
+% One-page resume tailored to the Formlabs Hardware R&D Internship
+% (Summer 2027). Same layout as resume.tex, but it leads with 3D printing
+% and hardware: the LMM printer comes before research experience, the
+% SHAPE Lab additive manufacturing work gets a full entry, and skills and
+% coursework lean toward mechanical design, mechatronics, and experiments.
+% Its own sections are in sections/resume/formlabs/; education,
+% publications, and awards reuse the one-page resume's.
+
+% Centered bold section title with less space around it than the center
+% environment the other versions use.
+\newcommand{\resheading}[1]{\par\vspace{2pt}{\centering\textbf{#1}\par}\vspace{3pt}}
+
+\begin{document}
+\input{sections/resume/formlabs/header}
+
+\input{sections/resume/formlabs/summary}
+
+\vspace{4pt}
+
+\input{sections/resume/one-page/education}
+
+\vspace{4pt}
+
+\input{sections/resume/formlabs/projects}
+
+\vspace{4pt}
+
+\input{sections/resume/formlabs/experience}
+
+\vspace{4pt}
+
+\input{sections/resume/one-page/publications}
+
+\vspace{4pt}
+
+\input{sections/resume/formlabs/skills}
+
+\vspace{4pt}
+
+\input{sections/resume/one-page/awards}
+
+\end{document}
